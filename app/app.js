@@ -12,6 +12,8 @@ const home = require("./src/routes/home")
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
+app.set(express.static('${__dirname}/src/public'));
+
 
 app.use("/", home);  //미들웨어를 등록해 주는 메소스
 
