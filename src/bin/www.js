@@ -1,15 +1,9 @@
 "use strict";
+const app = require("../app");
+const PORT = 3001;
 
-//이부분이  컨트롤러 이다. 
-const home = (req, res) => {
-        res.render("home/index")
-    };
+//여기가 수정이 된다. 
 
-const login = (req, res) => {
-    res.render("home/login")
-};
-
-module.exports = {
-    home,
-    login,
-};
+app.listen(PORT, () => {
+    console.log("서버 가동")
+});

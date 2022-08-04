@@ -31,3 +31,7 @@ app.use("/", home);  //미들웨어를 등록해 주는 메소스
 //     console.log("서버 가동")
 // });
 module.exports = app
+
+//브랜치에서 입력합니다. 
+
+//dlt
