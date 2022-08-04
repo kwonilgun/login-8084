@@ -6,10 +6,10 @@ const app = express();
 const PORT = 3001
 
 //라우팅- 홈으로 이동을 하고 index.js를 실행하게 해주는 역할을 한다.
-const home = require("./routes/home")
+const home = require("./src/routes/home")
 
 //앱 세팅
-app.set("views", "./views");
+app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
 
