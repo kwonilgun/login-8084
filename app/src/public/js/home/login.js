@@ -9,6 +9,7 @@
 console.log("hello");
 
 console.log("bye")
+console.log("byby")
 
 // const id = document.querySelector("#id"),
 // pwd = document.querySelector("#pwd"),
