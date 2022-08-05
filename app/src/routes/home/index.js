@@ -9,9 +9,9 @@ const ctrl = require("./home.ctrl")
 //     res.render("home/index")
 // })
 
-router.get('/', ctrl.home);
-router.get('/login', ctrl.login);
-//router.post('/login', ctrl.login);
+router.get('/', ctrl.output.home);
+router.get('/login', ctrl.output.login);
+router.post('/login', ctrl.process.login);
 
 // router.get('/login', (req, res) => {
 //     res.render("home/login")
