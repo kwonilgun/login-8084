@@ -12,8 +12,16 @@ function login() {
     const req = {
         id: id.value,
         pswd: pswd.value,
-    }
-    console.log(req)
+    };
+    // console.log(req);
+    // console.log(JSON.stringify(req));
+    fetch("/login", {
+        metho: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(req),
+    });
 }
 
-console.log(id);
+//console.log(id);
