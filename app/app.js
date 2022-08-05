@@ -11,11 +11,14 @@ const home = require("./src/routes/home")
 //앱 세팅
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
-
-app.set(express.static('${__dirname}/src/public'));
-
-
 app.use("/", home);  //미들웨어를 등록해 주는 메소스
+
+//디렉토리 설정이 정확해야 한다. 
+console.log(__dirname +'/src/public')
+app.use(express.static(__dirname +'/src/public'));
+
+
+
 
 
 
