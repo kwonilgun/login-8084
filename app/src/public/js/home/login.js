@@ -1,18 +1,19 @@
 "use strict";
 
-// const express = require('express');
-// const exp = express()
+//DOM -> Document object model 인터페이스 HTML에 존재하는 데이타를 가져와서 제어한다. 
 
-// exp.get('/', (req, res) => {
-//     res.send('여기는 루트 ekkk입니다. ')
-// })
-console.log("hello");
+const id = document.querySelector("#id"),
+pswd = document.querySelector("#pswd"),
+loginBtn = document.querySelector("button");
 
-console.log("bye")
-console.log("byby")
+loginBtn.addEventListener("click", login)
 
-// const id = document.querySelector("#id"),
-// pwd = document.querySelector("#pwd"),
-// loginBtn = document.querySelector("button");
+function login() {
+    const req = {
+        id: id.value,
+        pswd: pswd.value,
+    }
+    console.log(req)
+}
 
-// console.log(id);
+console.log(id);
