@@ -1,5 +1,6 @@
 "use strict";
 
+const User = require("../../models/User");
 const UserStorage = require("../../models/UserStorage")
 
 
@@ -13,6 +14,10 @@ const output = {
 
     login: (req, res) => {
         res.render("home/login")
+    },
+    
+    test: (req, res) => {
+        res.render("home/test")
     }
 }
 
@@ -20,30 +25,35 @@ const output = {
 
 const process ={
     login: (req, res) => {
+
+        const user = new User(req.body);
+        const response = user.login();
+        return res.json(response)
+
         //console("process login"),
-        console.log("process..");
-        console.log(req.body);
+        // console.log("process..");
+        // console.log(req.body);
 
-        const id = req.body.id,
-        pswd = req.body.pswd;
+        // const id = req.body.id,
+        // pswd = req.body.pswd;
 
-        //const userStorage = new UserStorage();
-        const users = UserStorage.getUsers("id", "pswd");
+        // //const userStorage = new UserStorage();
+        // const users = UserStorage.getUsers("id", "pswd");
 
-        const response = {};
+        // const response = {};
 
-        if(users.id.includes(id)){
-            const idx = users.id.indexOf(id);
-            if(users.pswd[idx] === pswd) {
-                response.success = true
-                return res.json(response);
-            }
-        };
+        // if(users.id.includes(id)){
+        //     const idx = users.id.indexOf(id);
+        //     if(users.pswd[idx] === pswd) {
+        //         response.success = true
+        //         return res.json(response);
+        //     }
+        // };
 
-        response.success = false;
-        response.msg = "로그인에 실패했습니다."
+        // response.success = false;
+        // response.msg = "로그인에 실패했습니다."
 
-        return res.json(response);
+        // return res.json(response);
        
     },
 };
