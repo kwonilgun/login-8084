@@ -1,6 +1,6 @@
 "use strict";
 
-
+const UserStorage = require("../../models/UserStorage")
 
 
 //이부분이  컨트롤러 이다. 
@@ -16,10 +16,7 @@ const output = {
     }
 }
 
-const users = {
-    id: ["kwon", "park","lee"],
-    pswd: ["123", "123", "123"]
-}
+
 
 const process ={
     login: (req, res) => {
@@ -28,21 +25,25 @@ const process ={
         console.log(req.body);
 
         const id = req.body.id,
-        pswd = req.body.pswd
+        pswd = req.body.pswd;
+
+        //const userStorage = new UserStorage();
+        const users = UserStorage.getUsers("id", "pswd");
+
+        const response = {};
 
         if(users.id.includes(id)){
             const idx = users.id.indexOf(id);
             if(users.pswd[idx] === pswd) {
-                return res.json({
-                    success: true,
-                })
+                response.success = true
+                return res.json(response);
             }
         };
 
-        return res.json({
-            success: false,
-            msg: "로그인에 실패함...",
-        });
+        response.success = false;
+        response.msg = "로그인에 실패했습니다."
+
+        return res.json(response);
        
     },
 };
