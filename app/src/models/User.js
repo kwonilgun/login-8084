@@ -10,24 +10,24 @@ class User {
 
     login() {
 
-        const body = this.body
+        const client = this.body
 
-        const {id, pswd} = UserStorage.getUserInfo(body.id);
+        const {id, pswd} = UserStorage.getUserInfo(client.id);
         //const a = UserStorage.getUserInfo("kwon");
         //console.log(a);
         if(id) {
-            if(id === body.id && pswd === body.pswd) {
+            if(id === client.id && pswd === client.pswd) {
                 return { success: true }
             }
             return {success: false, msg: "비밀번호가 틀렸습니다. "};
         }
         return { success: false, msg :"존재하지 않는 아이디 입니다. "}
-        
-
-
-
     }
 
+    register() {
+        const client = this.body
+        UserStorage.save(client)
+    }
 }
 
 module.exports = User;
