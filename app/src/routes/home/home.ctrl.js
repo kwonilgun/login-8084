@@ -15,10 +15,17 @@ const output = {
     login: (req, res) => {
         res.render("home/login")
     },
-    
+
+    register: (req, res) => {
+        res.render("home/register")
+
+    },
+
     test: (req, res) => {
         res.render("home/test")
-    }
+    },
+
+    
 }
 
 
