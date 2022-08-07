@@ -8,12 +8,15 @@ class User {
 
     }
 
-    login() {
+    async login() {
 
         const client = this.body
 
-        const {id, pswd} = UserStorage.getUserInfo(client.id);
-        //const a = UserStorage.getUserInfo("kwon");
+
+        //await 는 promise만 반환하는 함수에 대해서만 사용가능하다
+        const {id, pswd} = await UserStorage.getUserInfo(client.id);
+        console.log("login() 함수 콜");
+        console.log(id, pswd);
         //console.log(a);
         if(id) {
             if(id === client.id && pswd === client.pswd) {
