@@ -1,14 +1,21 @@
 "user strict"
 
-const { Console } = require("console");
+//const { Console } = require("console");
 
 //File system을 읽어온다.
 const fs = require("fs").promises;
+
 
 //Promises는 약속, 가 수행하는 동작이 끝남과 동시에 상태를
 //알려주기 때문에 비동기 처리에 아주 효과적이다. 
 
 class UserStorage {
+
+    static #users = {
+        id: ["kwon", "park", "lee"],
+        pswd: ["123", "123", "123"],
+        name: ["dd", "aa", "cc"],
+    };
 
     //#는 private를 뜻한다. 즉 private 함수이다. 
     static #getUserInfo(data, id) {
@@ -58,10 +65,11 @@ class UserStorage {
 
 
     static save(userInfo) {
-        //const users = this.#users;
+        const users = this.#users;
         users.id.push(userInfo.id);
         users.name.push(userInfo.name);
         users.pswd.push(userInfo.pswd);
+        console.log(users)
 
     }
 }
