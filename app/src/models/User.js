@@ -30,6 +30,7 @@ class User {
     register() {
         const client = this.body
         UserStorage.save(client)
+        return({success: true})
     }
 }
 
