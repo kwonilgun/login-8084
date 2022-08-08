@@ -17,6 +17,8 @@ class User {
         const {id, pswd} = await UserStorage.getUserInfo(client.id);
         console.log("login() 함수 콜");
         console.log(id, pswd);
+        console.log("client id, pswd")
+        console.log(client.id, client.pswd)
         //console.log(a);
         if(id) {
             if(id === client.id && pswd === client.pswd) {
@@ -30,8 +32,8 @@ class User {
     async register() {
         const client = this.body
         try {
-        const response = await UserStorage.save(client)
-        return(response)
+            const response = await UserStorage.save(client)
+            return(response)
         } catch(err){
             //console.error(err);
             return{success: false, msg:err};
