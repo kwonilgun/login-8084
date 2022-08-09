@@ -12,6 +12,8 @@ class User {
 
         const client = this.body
 
+        if (client.id == "") return { success: false, 
+            msg :"아이디가 비어있음 "}
 
         //await 는 promise만 반환하는 함수에 대해서만 사용가능하다
         const {id, pswd} = await UserStorage.getUserInfo(client.id);

@@ -18,6 +18,9 @@ app.use(express.urlencoded({extended: true}));
 //라우팅- 홈으로 이동을 하고 index.js를 실행하게 해주는 역할을 한다.
 const home = require("./src/routes/home")
 
+const logger = require("./src/config/logger")
+logger.info("Hello 구돚자")
+
 
 
 //앱 세팅
