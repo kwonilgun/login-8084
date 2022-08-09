@@ -4,7 +4,10 @@ const express = require('express');
 //const bodyParser = require("body-parser");
 const app = express();
 
-const PORT = 3001
+const dotenv = require("dotenv");
+dotenv.config();
+
+//const PORT = 3001
 
 //아주 많은 시간을 소비했다. 순서 문제이다. 라우터 전에  json을 세팅 해 주어야 한다.
 //그래야 라우터에서 작동이 된다. 
